@@ -22,7 +22,11 @@ roslaunch ur_robot_driver ur5e_bringup.launch robot_ip:=192.168.1.2 use_tool_com
 ```bash
 roslaunch robotiq_hande_ros_driver gripper_bringup.launch robot_ip:=192.168.1.2
 ```
-4. The gripper can now be controlled using a ROS service. See [`test.py`](https://github.com/cbteeple/robotiq_hande_ros_driver/blob/master/src/test.py) for example usage.
+4. The gripper can now be controlled using a ROS service.
+5. See [`test.py`](https://github.com/cbteeple/robotiq_hande_ros_driver/blob/master/src/test.py) for example usage. 
+```bash
+rosrun robotiq_hande_ros_driver test.py
+```
 
 Services allows the driver to send feedback when the finger action completes. This is useful when you want the program to wait until gripper complete its movement. 
 
