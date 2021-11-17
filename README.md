@@ -6,7 +6,7 @@ You need to properly configure your networks such that PC and Robot can ping eac
 Simply clone this package to your ROS catkin src folder then build the catkin workspace.
 ```bash
 cd ~/your_ws/src
-git clone https://github.com/macs-lab/robotiq_hande_ros_driver.git
+git clone https://github.com/cbteeple/robotiq_hande_ros_driver.git
 cd ..
 catkin_make
 ```
@@ -17,7 +17,7 @@ Create or modify the existing launch file based on your needs.
 
 Then start the driver by running the launch file. The gripper is controlled using ROS service.
 
-Services allows the driver to send feedback when the finger action completes. This is useful when you want the program to wait until gripper complete its movement. See [`test.py`](https://github.com/macs-lab/robotiq_hande_ros_driver/blob/master/src/test.py) for example usage.
+Services allows the driver to send feedback when the finger action completes. This is useful when you want the program to wait until gripper complete its movement. See [`test.py`](https://github.com/cbteeple/robotiq_hande_ros_driver/blob/master/src/test.py) for example usage.
 
 ## Questions
 Have questions? Open up a discussion [here](https://github.com/macs-lab/robotiq_hande_ros_driver/discussions)
