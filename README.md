@@ -1,5 +1,6 @@
 ## robotiq_hande_ros_driver
-This is the ROS driver for Robotiq Hand-E gripper. We assuming that the gripper is mounted on an UR robot, and the PC is connected with UR through Ethernet cable.
+This is the ROS driver for Robotiq Hand-E gripper connected to a Universal Robots e-series robot arm. We assuming that the gripper is mounted on the arm, and your host PC is connected to the robot through and ethernet cable.
+
 You need to properly configure your networks such that PC and Robot can ping each other.
 
 ## Install
@@ -12,12 +13,18 @@ catkin_make
 ```
 
 ## Usage
-Create or modify the existing launch file based on your needs.
-* robot_ip: the IP address of your UR robot
+1. Make note of your robot's IP address (we will use **192.168.1.2** as an example from our UR5e robot)
+2. Start the robot arm with tool communication:
+```bash
+roslaunch ur_robot_driver ur5e_bringup.launch robot_ip:=192.168.1.2 use_tool_communication:=true
+```
+3. Start the gripper driver by and pass the `robot_ip` argument.
+```bash
+roslaunch robotiq_hande_ros_driver gripper_bringup.launch robot_ip:=192.168.1.2
+```
+4. The gripper can now be controlled using a ROS service. See [`test.py`](https://github.com/cbteeple/robotiq_hande_ros_driver/blob/master/src/test.py) for example usage.
 
-Then start the driver by running the launch file. The gripper is controlled using ROS service.
-
-Services allows the driver to send feedback when the finger action completes. This is useful when you want the program to wait until gripper complete its movement. See [`test.py`](https://github.com/cbteeple/robotiq_hande_ros_driver/blob/master/src/test.py) for example usage.
+Services allows the driver to send feedback when the finger action completes. This is useful when you want the program to wait until gripper complete its movement. 
 
 ## Questions
-Have questions? Open up a discussion [here](https://github.com/macs-lab/robotiq_hande_ros_driver/discussions)
+This is a fork of a driver by macs-lab. If you have questions about this package, open up an issue [with me](https://github.com/cbteeple/robotiq_hande_ros_driver/issues) or a discussion with [macs-labs](https://github.com/macs-lab/robotiq_hande_ros_driver/discussions).
